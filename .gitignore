@@ -4,5 +4,5 @@
 /node_modules/*
 
 # generated reports
-/cypress/reports/*
+/cypress/results/*
 merge-reports.json
