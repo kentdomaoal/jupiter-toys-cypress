@@ -4,16 +4,24 @@
   "description": "Planit Automation Technical Assessment",
   "main": "index.js",
   "scripts": {
+    "cy:open": "cypress open",
     "cy:open:qa": "cypress open --config-file cypress.qa.config.js",
+    "cy:run": "cypress run",
     "cy:run:qa": "cypress run --config-file cypress.qa.config.js",
+    "cy:run:stg": "cypress run --config-file cypress.stg.config.js",
     
     "delete:reports": "rimraf -r cypress/results/* ",
     "merge:reports": "mochawesome-merge cypress/results/*.json > merge-reports.json",
     "generate:html:report": "npx marge merge-reports.json --reportDir cypress/results",
     
     "pretest": "npm run delete:reports",
-    "test": "npm run cy:run:qa || npm run posttest",
-    "posttest": "npm run merge:reports && npm run generate:html:report"
+    "test": "npm run cy:run || npm run posttest",
+    "posttest": "npm run merge:reports && npm run generate:html:report",
+
+    "test:qa" : "npm run pretest && npm run cy:run:qa || npm run posttest",
+    "posttest:qa" : "npm run posttest",
+    "test:stg" : "npm run pretest && npm run cy:run:stg || npm run posttest",
+    "posttest:stg" : "npm run posttest"
   },
   "author": "Kent Paul Noel Domaoal",
   "license": "ISC",
