@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	parameters {
+        choice(name: 'ENV', choices: ['dev', 'qa', 'stg' , 'prod'], description: 'Select Environment')
+    }
 	stages {
 		stage('Clone Git Repo'){
 				steps{
@@ -13,12 +16,12 @@ pipeline {
 		}
 		stage('Run Tests'){
 				steps{
-					bat 'npm test'
+					bat 'npm test:qa'
 				}
 		}
 		stage('Publish HTML Report'){
 				steps{
-					publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/results', reportFiles: 'merge-reports.html', reportName: "${env.BUILD_TAG}-HTML Report", reportTitles: ''])
+					publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/results', reportFiles: 'merge-reports.html', reportName: "${env.BUILD_TAG}-HTML-Report", reportTitles: ''])
 				}
 		}
 	}
