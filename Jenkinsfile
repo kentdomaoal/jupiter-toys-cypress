@@ -4,11 +4,6 @@ pipeline {
         choice(name: 'ENV', choices: ['dev', 'qa', 'stg' , 'prod'], description: 'Select Environment')
     }
 	stages {
-		stage('Clone Git Repo'){
-				steps{
-					git 'https://github.com/kentdomaoal/planit-assessment.git'
-		    }
-		}
 		stage('Install Dependencies'){
 				steps{
 					bat 'npm install'
