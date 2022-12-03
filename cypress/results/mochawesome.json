@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-03T11:16:00.911Z",
+    "end": "2022-12-03T11:16:16.419Z",
+    "duration": 15508,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ecda4ba7-a6ba-44ed-9ee9-0cf3aadb9381",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\CartPageTest.cy.js",
+      "file": "cypress\\e2e\\tests\\CartPageTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7d4e1c12-bdb9-4f91-b3b9-b715b09f7328",
+          "title": "Jupiter Toys Cart Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buys Products and validate prices, subtotal, total in Cart Page",
+              "fullTitle": "Jupiter Toys Cart Page Tests Buys Products and validate prices, subtotal, total in Cart Page",
+              "timedOut": null,
+              "duration": 9496,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// By instantiating ShopPage object it will navigate to Shop Page\n// See ShopPage constructor\nnew _ShopPage.ShopPage().buy(this.shoppingList); // Buy based on shopping list\n// Go to Cart page\nlet cartPage = new _CartPage.CartPage(); // Validate subtotal for each product\nlet subTotalArray = [];\nlet products = this.shoppingList.products;\nproducts.forEach(product => {\n  cartPage.getPrice(product.name); // Get Price\n  cartPage.getSubtotal(product.name, subTotalArray); // Get Subtotal\n  cy.get('@subtotal').then(subtotal => {\n    cy.get('@price').then(price => {\n      expect(subtotal).to.equals(price * product.quantity);\n    });\n  });\n}); // Validate price for each product\n// comparing the price from Shop Page to Cart Page\nproducts.forEach(product => {\n  cartPage.getPrice(product.name).then(cartPagePrice => {\n    // Cart Page Price\n    cy.get('@productPriceMap').then(productPriceMap => {\n      let shopPagePrice = productPriceMap.get(product.name); // Shop Page Price\n      expect(shopPagePrice).to.equals(cartPagePrice);\n    });\n  });\n}); // Validate total\ncartPage.getTotal().then(total => {\n  cy.get('@subTotals').then(subTotals => {\n    expect(total).to.equals(cartPage.sum(subTotals));\n  });\n});",
+              "err": {},
+              "uuid": "3171597d-4b94-4d99-8dc1-7f9be05f6db8",
+              "parentUUID": "7d4e1c12-bdb9-4f91-b3b9-b715b09f7328",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3171597d-4b94-4d99-8dc1-7f9be05f6db8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9496,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

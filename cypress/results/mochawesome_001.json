@@ -1,0 +1,224 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 0,
+    "pending": 0,
+    "failures": 6,
+    "start": "2022-12-03T11:16:20.878Z",
+    "end": "2022-12-03T11:17:07.279Z",
+    "duration": 46401,
+    "testsRegistered": 6,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "47dc2f1c-b30b-4691-984b-82c9b58a41ab",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\ContactPageTest.cy.js",
+      "file": "cypress\\e2e\\tests\\ContactPageTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "978fed52-aebd-40e4-8087-942a87d246ec",
+          "title": "Jupiter Toys Contact Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigates to Contact Page and validate error messages for mandatory fields",
+              "fullTitle": "Jupiter Toys Contact Page Tests Navigates to Contact Page and validate error messages for mandatory fields",
+              "timedOut": null,
+              "duration": 8981,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "\"assets/ContactPageTest.cy.js/Jupiter Toys Contact Page Tests -- Navigates to Contact Page and validate error messages for mandatory fields (failed).png\"",
+              "code": "// Go to Contact page.\n// By instantiating ContactPage object it will navigate to Contact Page.\n// see ContactPage constructor\nlet page = new _ContactPage.ContactPage(); //Click submit button\npage.clickButton('Submit'); //Validate alert error message\npage.alertErrorMessage.should('contain', page.ERROR_MESSAGE); //Validate error messages on mandatory fields\npage.forenameErrorMessage.should('contain', page.errorMessageFor('Forename'));\npage.emailErrorMessage.should('contain', page.errorMessageFor('Email'));\npage.messageErrorMessage.should('contain', page.errorMessageFor('Message')); //Populate mandatory fields\npage.enterForename(this.userFeedback.Forename);\npage.enterEmail(this.userFeedback.Email);\npage.enterMessage(this.userFeedback.Message); //Validate errors are gone\npage.alertErrorMessage.should('not.exist');\npage.forenameErrorMessage.should('not.exist');\npage.emailErrorMessage.should('not.exist');\npage.messageErrorMessage.should('not.exist');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.\n    at ContactPage.enterForename (webpack:///./cypress/e2e/pages/ContactPage.js:45:11)\n    at Context.eval (webpack:///./cypress/e2e/tests/ContactPageTest.cy.js:37:9)",
+                "diff": null
+              },
+              "uuid": "f45d8850-8edd-4361-8887-97d5eafb77ea",
+              "parentUUID": "978fed52-aebd-40e4-8087-942a87d246ec",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Contact Page and validate successful submission",
+              "fullTitle": "Jupiter Toys Contact Page Tests Navigates to Contact Page and validate successful submission",
+              "timedOut": null,
+              "duration": 7125,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "\"assets/ContactPageTest.cy.js/Jupiter Toys Contact Page Tests -- Navigates to Contact Page and validate successful submission (failed).png\"",
+              "code": "// Go to contact page\n// by instantiating ContactPage object it will navigate to Contact Page\n// see ContactPage constructor\nlet page = new _ContactPage.ContactPage(); //Populate mandatory fields\npage.enterForename(this.userFeedback.Forename);\npage.enterEmail(this.userFeedback.Email);\npage.enterMessage(this.userFeedback.Message); //Click submit button\npage.clickButton('Submit'); //Wait for successful message to appear\npage.alertSuccessMessage.should('be.visible').and('contain', page.successMessageForUser(this.userFeedback.Forename));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.\n    at ContactPage.enterForename (webpack:///./cypress/e2e/pages/ContactPage.js:45:11)\n    at Context.eval (webpack:///./cypress/e2e/tests/ContactPageTest.cy.js:57:11)",
+                "diff": null
+              },
+              "uuid": "5898b3c8-5085-4ce7-828f-1a9d8f593fc3",
+              "parentUUID": "978fed52-aebd-40e4-8087-942a87d246ec",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Contact Page and validate successful submission",
+              "fullTitle": "Jupiter Toys Contact Page Tests Navigates to Contact Page and validate successful submission",
+              "timedOut": null,
+              "duration": 6074,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "\"assets/ContactPageTest.cy.js/Jupiter Toys Contact Page Tests -- Navigates to Contact Page and validate successful submission (failed).png\"",
+              "code": "// Go to contact page\n// by instantiating ContactPage object it will navigate to Contact Page\n// see ContactPage constructor\nlet page = new _ContactPage.ContactPage(); //Populate mandatory fields\npage.enterForename(this.userFeedback.Forename);\npage.enterEmail(this.userFeedback.Email);\npage.enterMessage(this.userFeedback.Message); //Click submit button\npage.clickButton('Submit'); //Wait for successful message to appear\npage.alertSuccessMessage.should('be.visible').and('contain', page.successMessageForUser(this.userFeedback.Forename));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.\n    at ContactPage.enterForename (webpack:///./cypress/e2e/pages/ContactPage.js:45:11)\n    at Context.eval (webpack:///./cypress/e2e/tests/ContactPageTest.cy.js:57:11)",
+                "diff": null
+              },
+              "uuid": "3c86d1c4-baba-4082-8048-5696fc54ae79",
+              "parentUUID": "978fed52-aebd-40e4-8087-942a87d246ec",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Contact Page and validate successful submission",
+              "fullTitle": "Jupiter Toys Contact Page Tests Navigates to Contact Page and validate successful submission",
+              "timedOut": null,
+              "duration": 6707,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "\"assets/ContactPageTest.cy.js/Jupiter Toys Contact Page Tests -- Navigates to Contact Page and validate successful submission (failed).png\"",
+              "code": "// Go to contact page\n// by instantiating ContactPage object it will navigate to Contact Page\n// see ContactPage constructor\nlet page = new _ContactPage.ContactPage(); //Populate mandatory fields\npage.enterForename(this.userFeedback.Forename);\npage.enterEmail(this.userFeedback.Email);\npage.enterMessage(this.userFeedback.Message); //Click submit button\npage.clickButton('Submit'); //Wait for successful message to appear\npage.alertSuccessMessage.should('be.visible').and('contain', page.successMessageForUser(this.userFeedback.Forename));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.\n    at ContactPage.enterForename (webpack:///./cypress/e2e/pages/ContactPage.js:45:11)\n    at Context.eval (webpack:///./cypress/e2e/tests/ContactPageTest.cy.js:57:11)",
+                "diff": null
+              },
+              "uuid": "f6a75206-04af-432f-b07f-043a63b009af",
+              "parentUUID": "978fed52-aebd-40e4-8087-942a87d246ec",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Contact Page and validate successful submission",
+              "fullTitle": "Jupiter Toys Contact Page Tests Navigates to Contact Page and validate successful submission",
+              "timedOut": null,
+              "duration": 6499,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "\"assets/ContactPageTest.cy.js/Jupiter Toys Contact Page Tests -- Navigates to Contact Page and validate successful submission (failed).png\"",
+              "code": "// Go to contact page\n// by instantiating ContactPage object it will navigate to Contact Page\n// see ContactPage constructor\nlet page = new _ContactPage.ContactPage(); //Populate mandatory fields\npage.enterForename(this.userFeedback.Forename);\npage.enterEmail(this.userFeedback.Email);\npage.enterMessage(this.userFeedback.Message); //Click submit button\npage.clickButton('Submit'); //Wait for successful message to appear\npage.alertSuccessMessage.should('be.visible').and('contain', page.successMessageForUser(this.userFeedback.Forename));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.\n    at ContactPage.enterForename (webpack:///./cypress/e2e/pages/ContactPage.js:45:11)\n    at Context.eval (webpack:///./cypress/e2e/tests/ContactPageTest.cy.js:57:11)",
+                "diff": null
+              },
+              "uuid": "944caa1d-278d-4a21-a255-437a5dd2a758",
+              "parentUUID": "978fed52-aebd-40e4-8087-942a87d246ec",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigates to Contact Page and validate successful submission",
+              "fullTitle": "Jupiter Toys Contact Page Tests Navigates to Contact Page and validate successful submission",
+              "timedOut": null,
+              "duration": 6140,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "\"assets/ContactPageTest.cy.js/Jupiter Toys Contact Page Tests -- Navigates to Contact Page and validate successful submission (failed).png\"",
+              "code": "// Go to contact page\n// by instantiating ContactPage object it will navigate to Contact Page\n// see ContactPage constructor\nlet page = new _ContactPage.ContactPage(); //Populate mandatory fields\npage.enterForename(this.userFeedback.Forename);\npage.enterEmail(this.userFeedback.Email);\npage.enterMessage(this.userFeedback.Message); //Click submit button\npage.clickButton('Submit'); //Wait for successful message to appear\npage.alertSuccessMessage.should('be.visible').and('contain', page.successMessageForUser(this.userFeedback.Forename));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#forenames`, but never found it.\n    at ContactPage.enterForename (webpack:///./cypress/e2e/pages/ContactPage.js:45:11)\n    at Context.eval (webpack:///./cypress/e2e/tests/ContactPageTest.cy.js:57:11)",
+                "diff": null
+              },
+              "uuid": "1aab4e26-e550-4412-85d4-4d368a754fea",
+              "parentUUID": "978fed52-aebd-40e4-8087-942a87d246ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f45d8850-8edd-4361-8887-97d5eafb77ea",
+            "5898b3c8-5085-4ce7-828f-1a9d8f593fc3",
+            "3c86d1c4-baba-4082-8048-5696fc54ae79",
+            "f6a75206-04af-432f-b07f-043a63b009af",
+            "944caa1d-278d-4a21-a255-437a5dd2a758",
+            "1aab4e26-e550-4412-85d4-4d368a754fea"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 41526,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
