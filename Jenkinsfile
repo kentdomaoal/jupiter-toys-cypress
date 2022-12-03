@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('Run Tests'){
 				steps{
-					bat 'npm run test:qa'
+					bat "npm run test:${params.ENV}"
 				}
 		}
 		stage('Publish HTML Report'){
