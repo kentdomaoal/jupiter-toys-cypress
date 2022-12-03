@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('Run Tests'){
 				steps{
-					bat 'npm test:qa'
+					bat 'npm run test:qa'
 				}
 		}
 		stage('Publish HTML Report'){
