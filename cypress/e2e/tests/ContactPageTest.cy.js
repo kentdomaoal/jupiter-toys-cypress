@@ -45,7 +45,7 @@ describe('Jupiter Toys Contact Page Tests', () => {
     page.messageErrorMessage.should('not.exist');
   })
 
-  Cypress._.times(2, function() {
+  Cypress._.times(5, function() {
     it('Navigates to Contact Page and validate successful submission', function() {
 
       // Go to contact page
