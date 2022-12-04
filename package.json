@@ -19,15 +19,12 @@
     "posttest:qa": "npm run posttest",
     "test:stg": "npm run pretest && npm run cy:run:stg || npm run posttest",
     "posttest:stg": "npm run posttest",
-    "cy:run:qa:allure": "cypress run --config-file cypress.qa.config.js --env allure=true",
-    "cy:run:stg:allure": "cypress run --config-file cypress.stg.config.js --env allure=true",
+    "cy:run:qa:allure": "cypress run --env allure=true --config-file cypress.qa.allure.config.js",
     "allure:clear": "rimraf -r allure-report/* && rimraf -r allure-results/*",
     "allure:report": "allure generate allure-results --clean -o allure-report",
     "pretest:allure": "npm run allure:clear",
     "test:qa:allure": "npm run pretest:allure && npm run cy:run:qa:allure || posttest:qa:allure",
-    "posttest:qa:allure": "npm run allure:report",
-    "test:stg:allure": "npm run pretest:allure && npm run cy:run:stg:allure || posttest:stg:allure",
-    "posttest:stg:allure": "npm run allure:report"
+    "posttest:qa:allure": "npm run allure:report"
   },
   "author": "Kent Paul Noel Domaoal",
   "license": "ISC",
