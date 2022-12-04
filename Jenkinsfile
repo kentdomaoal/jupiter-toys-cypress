@@ -27,8 +27,8 @@ pipeline {
 							REPORT_FILES = 'index.html'
 						} 
 					}
-					
-					publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: ${REPORT_DIR}, reportFiles: ${REPORT_FILES}, reportName: "${env.BUILD_TAG}-HTML-Report", reportTitles: ''])
+
+					publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${REPORT_DIR}", reportFiles: "${REPORT_FILES}", reportName: "${env.BUILD_TAG}-HTML-Report", reportTitles: ''])
 				}
 		}
 	}
