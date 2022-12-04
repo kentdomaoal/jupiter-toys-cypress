@@ -16,9 +16,8 @@ export class ShopPage extends BasePage {
                 .siblings('p')
                 .children('.product-price')
                 .invoke('text')
-                .then((price) => { return price.replace('$', '') })
-                .then(parseFloat)
-                .then((productPrice) => {
+                .then((price) => {
+                    let productPrice = parseFloat(price.replace('$', ''))
                     return productPriceMap.set(product.name, productPrice)
                 })
                 .as('productPriceMap');
@@ -30,7 +29,7 @@ export class ShopPage extends BasePage {
             // buy the product
             cy.contains('.product-title', name)
                 .siblings('p')
-                .children('.btn').should('contain', 'Buy')
+                .children('.btn').contains('Buy')
                 .click();
         }
     }

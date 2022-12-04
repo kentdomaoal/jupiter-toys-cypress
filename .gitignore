@@ -6,3 +6,5 @@
 # generated reports
 /cypress/results/*
 merge-reports.json
+/allure-report/*
+/allure-results/*

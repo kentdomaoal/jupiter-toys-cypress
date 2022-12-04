@@ -10,8 +10,7 @@ export class CartPage extends BasePage {
     getPrice(name){
         return cy.contains('td', name)
             .next().invoke('text')
-            .then((price) => { return price.replace('$', '') })
-            .then(parseFloat)
+            .then((price) => { return parseFloat(price.replace('$', '')) })
             .as('price');
     }
 
@@ -19,8 +18,7 @@ export class CartPage extends BasePage {
         return cy.contains('td', name)
             .next().next().next()
             .invoke('text')
-            .then((subtotal) => { return subtotal.replace('$', '') })
-            .then(parseFloat)
+            .then((subtotal) => { return parseFloat(subtotal.replace('$', '')) })
             .as('subtotal')
 
             //store subtotal into array
@@ -34,8 +32,7 @@ export class CartPage extends BasePage {
     getTotal(){
         return cy.get('.total')
             .invoke('text')
-            .then((total) => { return total.replace('Total: ', '') })
-            .then(parseFloat);
+            .then((total) => { return parseFloat(total.replace('Total: ', '')) })
     }
 
     sum(subTotalsArray){

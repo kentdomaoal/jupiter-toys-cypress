@@ -35,8 +35,8 @@ describe('Jupiter Toys Cart Page Tests', () => {
             cartPage.getSubtotal(product.name, subTotalArray); // Get Subtotal
 
             cy.get('@subtotal').then((subtotal) => {
-                cy.get('@price').then((price) => { 
-                    expect(subtotal).to.equals(price * product.quantity);
+                cy.get('@price').should((price) => { 
+                    expect(subtotal, product.name+"'s subtotal").to.equals(price * product.quantity);
                 })
             });
         });
@@ -45,17 +45,17 @@ describe('Jupiter Toys Cart Page Tests', () => {
         // comparing the price from Shop Page to Cart Page
         products.forEach(product => {
             cartPage.getPrice(product.name).then((cartPagePrice)=>{  // Cart Page Price
-                cy.get('@productPriceMap').then((productPriceMap) => { 
+                cy.get('@productPriceMap').should((productPriceMap) => { 
                     let shopPagePrice = productPriceMap.get(product.name) // Shop Page Price
-                    expect(shopPagePrice).to.equals(cartPagePrice);
+                    expect(cartPagePrice, product.name+"'s price").to.equals(shopPagePrice);
                 })
             });
         });
         
         // Validate total
         cartPage.getTotal().then((total) => {
-            cy.get('@subTotals').then((subTotals)=>{ 
-                expect(total).to.equals(cartPage.sum(subTotals));
+            cy.get('@subTotals').should((subTotals)=>{ 
+                expect(total, 'Total Amount').to.equals(cartPage.sum(subTotals));
             })
         }) 
     })
