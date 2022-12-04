@@ -12,7 +12,13 @@ pipeline {
 		}
 		stage('Run Tests'){
 				steps{
-					bat "npm run test:${params.ENV}"
+					script {
+						if (params.Reporter == 'allure') {
+							bat "npm run test:${params.ENV}:${params.Reporter}"
+						} else {
+							bat "npm run test:${params.ENV}"
+						}
+					}	
 				}
 		}
 		stage('Publish HTML Report'){
