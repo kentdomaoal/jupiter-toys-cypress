@@ -12,7 +12,7 @@ export class ContactPage extends BasePage {
     emailErrMessage = '#email-err';
     messageErrMessage = '#message-err';
     
-    forenameTextbox = '#forenames';
+    forenameTextbox = '#forename';
     emailTextbox = '#email';
     messageTextbox = '#message';
 
