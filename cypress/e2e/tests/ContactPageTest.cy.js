@@ -26,12 +26,12 @@ describe('Jupiter Toys Contact Page Tests', () => {
     page.clickButton('Submit');
 
     //Validate alert error message
-    page.alertErrorMessage.should('contain', page.ERROR_MESSAGE);
+    page.alertErrorMessage.should('exist').and('contain', page.ERROR_MESSAGE);
     
     //Validate error messages on mandatory fields
-    page.forenameErrorMessage.should('contain',page.errorMessageFor('Forename'));
-    page.emailErrorMessage.should('contain',page.errorMessageFor('Email'));
-    page.messageErrorMessage.should('contain',page.errorMessageFor('Message'));
+    page.forenameErrorMessage.should('exist').and('contain',page.errorMessageFor('Forename'));
+    page.emailErrorMessage.should('exist').and('contain',page.errorMessageFor('Email'));
+    page.messageErrorMessage.should('exist').and('contain',page.errorMessageFor('Message'));
 
     //Populate mandatory fields
     page.enterForename(this.userFeedback.Forename);
