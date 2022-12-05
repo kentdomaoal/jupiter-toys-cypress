@@ -42,7 +42,7 @@ export class ContactPage extends BasePage {
     }
 
     enterForename(name){
-        cy.get(this.forenameTextbox).type(name);
+        cy.get(this.forenameTextbox).type(name, {animationDistanceThreshold: 20});
     }
 
     enterEmail(email){
