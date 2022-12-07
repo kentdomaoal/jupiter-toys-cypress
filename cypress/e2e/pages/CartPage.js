@@ -1,4 +1,5 @@
 import { BasePage } from "./BasePage";
+import { Utility } from "../../support/utility";
 
 export class CartPage extends BasePage {
 
@@ -10,7 +11,7 @@ export class CartPage extends BasePage {
     getPrice(name){
         return cy.contains('td', name)
             .next().invoke('text')
-            .then((price) => { return parseFloat(price.replace('$', '')) })
+            .then((price) => { return parseFloat(price.match(Utility.getRegexFloat())) })
             .as('price');
     }
 
@@ -18,7 +19,7 @@ export class CartPage extends BasePage {
         return cy.contains('td', name)
             .next().next().next()
             .invoke('text')
-            .then((subtotal) => { return parseFloat(subtotal.replace('$', '')) })
+            .then((subtotal) => { return parseFloat(subtotal.match(Utility.getRegexFloat())) })
             .as('subtotal')
 
             //store subtotal into array
@@ -32,7 +33,7 @@ export class CartPage extends BasePage {
     getTotal(){
         return cy.get('.total')
             .invoke('text')
-            .then((total) => { return parseFloat(total.replace('Total: ', '')) })
+            .then((total) => { return parseFloat(total.match(Utility.getRegexFloat())) })
     }
 
     sum(subTotalsArray){
