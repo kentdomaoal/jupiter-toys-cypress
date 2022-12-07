@@ -9,6 +9,7 @@ export class ShopPage extends BasePage {
 
     getProductPrices(products){
         let productPriceMap = new Map();
+        let productPrice = 0;
 
         products.forEach(product => {
             // Get the Price of the product and store in a map
@@ -17,7 +18,7 @@ export class ShopPage extends BasePage {
                 .children('.product-price')
                 .invoke('text')
                 .then((price) => {
-                    let productPrice = parseFloat(price.replace('$', ''))
+                    productPrice = parseFloat(price.replace('$', ''))
                     return productPriceMap.set(product.name, productPrice)
                 })
                 .as('productPriceMap');

@@ -11,8 +11,7 @@ describe('Jupiter Toys Contact Page Tests', () => {
     cy.visit("/");
 
     // read test data
-    let util = new Utility();
-    cy.fixture(util.getFilename('userFeedback')).as('userFeedback');
+    cy.fixture(Utility.getFilename('userFeedback')).as('userFeedback');
   })
 
   it('Navigates to Contact Page and validate error messages for mandatory fields', function() {
@@ -20,7 +19,7 @@ describe('Jupiter Toys Contact Page Tests', () => {
     // Go to Contact page.
     // By instantiating ContactPage object it will navigate to Contact Page.
     // see ContactPage constructor
-    let page = new ContactPage();
+    const page = new ContactPage();
     
     //Click submit button
     page.clickButton('Submit');
@@ -51,7 +50,7 @@ describe('Jupiter Toys Contact Page Tests', () => {
       // Go to contact page
       // by instantiating ContactPage object it will navigate to Contact Page
       // see ContactPage constructor
-      let page = new ContactPage();
+      const page = new ContactPage();
 
       //Populate mandatory fields
       page.enterForename(this.userFeedback.Forename);

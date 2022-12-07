@@ -14,18 +14,17 @@ describe('Jupiter Toys Cart Page Tests', () => {
 
     before(() => {
         // read test data
-        let util = new Utility();
-        cy.fixture(util.getFilename('shoppingList')).as('shoppingList');
+        cy.fixture(Utility.getFilename('shoppingList')).as('shoppingList');
     })
 
     it('Buys Products and validate prices, subtotal, total in Cart Page', function () {
         
         // By instantiating ShopPage object it will navigate to Shop Page
         // See ShopPage constructor
-        new ShopPage().buy(this.shoppingList) // Buy based on shopping list
+        new ShopPage().buy(this.shoppingList); // Buy based on shopping list
         
         // Go to Cart page
-        let cartPage = new CartPage();
+        const cartPage = new CartPage();
         
         // Validate subtotal for each product
         let subTotalArray = [];
@@ -43,10 +42,11 @@ describe('Jupiter Toys Cart Page Tests', () => {
 
         // Validate price for each product
         // comparing the price from Shop Page to Cart Page
+        let shopPagePrice = 0;
         products.forEach(product => {
             cartPage.getPrice(product.name).then((cartPagePrice)=>{  // Cart Page Price
                 cy.get('@productPriceMap').should((productPriceMap) => { 
-                    let shopPagePrice = productPriceMap.get(product.name) // Shop Page Price
+                    shopPagePrice = productPriceMap.get(product.name); // Shop Page Price
                     expect(cartPagePrice, product.name+"'s price").to.equals(shopPagePrice);
                 })
             });
