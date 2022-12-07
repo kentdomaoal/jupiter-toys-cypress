@@ -3,6 +3,7 @@
 ## How to run in local machine
 
 - ## 💻 Pre-requisites
+  - Git Bash
   - Node JS
   - Java 8 or higher - for Allure Reporter
 
