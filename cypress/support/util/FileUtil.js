@@ -6,8 +6,5 @@ export class Utility {
         }
         return filename;
     }
-
-    static getRegexFloat(){
-        return /[+-]?\d+(\.\d+)?/g;
-    }
+    
 }

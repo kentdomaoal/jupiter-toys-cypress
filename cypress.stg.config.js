@@ -13,6 +13,7 @@ module.exports = defineConfig({
   screenshotOnRunFailure: true,
   screenshotsFolder: 'cypress/results/assets',
   video: false,
+  fixturesFolder: 'cypress/fixtures/stg/',
   reporter: 'mochawesome',
   reporterOptions: {
     reportDir: 'cypress/results',
