@@ -1,4 +1,5 @@
-# planit-assessment
+# jupiter-toys-cypress
+Sample Test automation using Cypress.
 
 ## How to run in local machine
 
@@ -9,9 +10,9 @@
 
 ## 1. Clone the project
 
-       git clone https://github.com/kentdomaoal/planit-assessment.git
+       git clone https://github.com/kentdomaoal/jupiter-toys-cypress.git
        
-       cd planit-assessment
+       cd jupiter-toys-cypress
 
 ## 2. Install dependencies
 
